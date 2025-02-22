@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Collection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="topbar">
+        <a href="/">Main</a>
+    </div>
+
+    <h1>Vinyl Collection</h1>
+
+    <!-- Button to toggle visibility of the add vinyl form (using a + sign) -->
+    <button class="toggle-btn" onclick="toggleAddVinyl()">+</button>
+
+    <!-- Hidden form to add a vinyl -->
+    <div class="add-vinyl">
+        <h3>Add a Vinyl to Collection</h3>
+        <input type="text" id="upc" placeholder="Enter UPC code">
+        <button onclick="addVinyl()">Add Vinyl</button>
+    </div>
+
+
+
+    <div id="albums-container" class="albums-container">
+        {% for album in albums %}
+        <div class="album">
+            <img src="{{ album.cover }}" alt="{{ album.name }}">
+            <h3>{{ album.name }}</h3>
+            <p>{{ album.artist }} ({{ album.release_date }})</p>
+            <button class="show-tracklist" onclick="toggleTracklist({{ album }}, this)">Show Tracklist</button>
+            <button class="delete" onclick="deleteAlbum({{ album }})">Delete</button>
+            <div class="tracklist-container" id="tracklist-container-{{ album.id }}" style="display: none;">
+                <ul></ul>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Notification Bar -->
+    <div id="bottom-bar" style="display: none;">
+        <span id="message"></span>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+
+</html>

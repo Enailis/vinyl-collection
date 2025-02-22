@@ -1,0 +1,430 @@
+/*****************/
+/* GENERAL STYLE */
+/*****************/
+body {
+    background-color: #202124;
+    padding-top: 50px;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+label {
+    color: #d4d4d4;
+    font-family: "Commissioner", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "FLAR" 0,
+        "VOLM" 0;
+}
+
+h1 {
+    text-align: center;
+    /* Centers the text horizontally */
+    margin-top: 5px;
+    /* Removes default margin for better control */
+    padding: 20px 0;
+    /* Optional: Adds some space above and below the heading */
+}
+
+
+/**********/
+/* TOPBAR */
+/**********/
+
+/* Topbar styling */
+.topbar {
+    display: flex;
+    justify-content: left;
+    /* Spacing between the links */
+    align-items: center;
+    position: fixed;
+    /* Keep it at the top of the page */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #323439;
+    /* Dark background color */
+    color: #fff;
+    /* #d4d4d4 text */
+    padding: 10px 20px;
+    z-index: 1000;
+    /* Ensure it stays above other elements */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+/* Styling for the links */
+.topbar a {
+    color: #fff;
+    text-decoration: none;
+    /* Remove underlines */
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Smooth transition for hover effects including border-radius */
+    /* Smooth transition for hover effects */
+}
+
+.topbar a:hover {
+    background-color: #202124;
+    /* Highlight color on hover */
+    color: #fff;
+    /* Keep text #d4d4d4 on hover */
+    border-radius: 5px;
+    /* Rounded corners on hover */
+}
+
+/* Optional: Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .topbar {
+        flex-direction: column;
+        /* Stack the links vertically on small screens */
+        align-items: center;
+    }
+
+    .topbar a {
+        margin: 5px 0;
+        /* Add spacing between the links */
+    }
+}
+
+
+/*****************************/
+/* SORTING (NOT WORKING YET) */
+/*****************************/
+
+/* Styling for the sort-options container */
+.sort-options {
+    display: flex;
+    align-items: center;
+    /* Vertically center the label and select */
+    margin-left: auto;
+    /* Push the sort options to the right */
+    padding: 0 10px;
+    /* Optional: Some space around the dropdown */
+}
+
+/* Styling the label */
+.sort-options label {
+    color: #fff;
+    /* #d4d4d4 text color */
+    font-size: 14px;
+    /* Slightly smaller text for label */
+    margin-right: 10px;
+    /* Space between label and dropdown */
+}
+
+/* Styling for the select dropdown */
+.sort-options select {
+    background-color: #444;
+    /* Dark background for the dropdown */
+    color: #fff;
+    /* #d4d4d4 text for options */
+    border: 1px solid #666;
+    /* Subtle border around the dropdown */
+    padding: 8px 12px;
+    font-size: 14px;
+    /* Slightly smaller text for the dropdown */
+    border-radius: 5px;
+    /* Rounded corners */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover and focus states for the select dropdown */
+.sort-options select:hover,
+.sort-options select:focus {
+    background-color: #555;
+    /* Slightly lighter on hover/focus */
+    border-color: #202124;
+    /* Border color change on hover/focus */
+    outline: none;
+    /* Remove default focus outline */
+}
+
+
+/************************************/
+/* BOTTOM RIGHT BUTTON TO ADD VINYL */
+/************************************/
+
+/* Button to toggle visibility of the add vinyl form (using + sign) */
+.toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background-color: #677caa;
+    color: #d4d4d4;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1100;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.05);
+    background-color: #485676;
+}
+
+/* Hidden form by default */
+.add-vinyl {
+    position: fixed;
+    bottom: 80px;
+    /* Slightly above the button */
+    right: 20px;
+    background-color: #444;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    display: none;
+    /* Initially hidden */
+    z-index: 1000;
+    /* Behind the toggle button */
+}
+
+.add-vinyl h3 {
+    margin: 0 0 10px 0;
+    color: #fff;
+}
+
+.add-vinyl input {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #333;
+    color: #d4d4d4;
+}
+
+.add-vinyl button {
+    width: 100%;
+    padding: 10px;
+    background-color: #677caa;
+    border: none;
+    border-radius: 5px;
+    color: #d4d4d4;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-vinyl button:hover {
+    background-color: #485676;
+}
+
+
+/********************/
+/* ALBUMS CONTAINER */
+/********************/
+
+/* Container for the albums */
+.albums-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Creates 4 equal columns */
+    gap: 25px;
+    /* set space between the album items */
+    padding: 1%;
+    justify-items: center;
+    align-items: flex-start;
+}
+
+.album {
+    background-color: #323439;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* soft shadow */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;    
+    width: 100%;
+    /* Ensures that it doesn't overflow */
+    max-width: 250px;
+    /* Limit the maximum width of each album */
+}
+
+/* Styling for the image */
+.album img {
+    width: 100%;
+    height: 180px;
+    /* Fixed height for images to make them more compact */
+    object-fit: cover;
+}
+
+/* Album title and artist */
+.album h3 {
+    font-size: 1.1em;
+    margin: 8px 0;
+    color: #d4d4d4;
+}
+
+.album p {
+    font-size: 0.9em;
+    color: #d4d4d4;
+    margin: 0 0 15px 0;
+}
+
+/* Buttons */
+.show-tracklist {
+    background-color: #677caa;
+    color: #d4d4d4;
+    border: none;
+    padding: 8px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.show-tracklist:hover {
+    background-color: #485676;
+}
+
+.delete {
+    background-color: #c54b5a;
+    /* Modern green color */
+    color: #d4d4d4;
+    border: none;
+    padding: 8px 15px;
+    /* Smaller button padding */
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    /* Smaller font size for the buttons */
+    transition: background-color 0.3s ease;
+}
+
+.delete:hover {
+    background-color: #9D3C48;
+    /* Darker green on hover */
+}
+
+/* Hover effects for album */
+.album:hover {
+    transform: scale(1.05);
+    /* transform: translateY(-2px); */
+    /* Slightly lift the album on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    /* Stronger shadow when hovered */
+}
+
+
+/*************/
+/* TRACKLIST */
+/*************/
+
+/* Tracklist container */
+.tracklist-container {
+    border-radius: 12px;
+    max-width: 500px;
+    /* Optional, limit the width of the container */
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+    margin: 20px auto;
+    word-wrap: break-word;
+    /* Breaks long words into the next line if needed */
+}
+
+/* List styling */
+.tracklist-container ul {
+    list-style: none;
+    /* Remove default list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual track item styling */
+.tracklist-container li {
+    padding: 8px 16px;
+    /* Padding for spacing */
+    border-bottom: 1px solid #eee;
+    /* Thin border to separate items */
+    font-size: 1.1em;
+    /* Slightly larger font for readability */
+    text-align: left;
+    /* Align text to the left */
+    white-space: normal;
+    /* Allow text to wrap normally within the container */
+    color: #d4d4d4;
+    font-family: "Commissioner", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0,
+        "FLAR" 0,
+        "VOLM" 0;
+}
+
+/* Styling for the tracklist when there are no items */
+.tracklist-container ul:empty {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style for the bottom notification bar */
+#bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    display: none;
+    /* Initially hidden */
+    z-index: 1000;
+}
+
+#bottom-bar.success {
+    background-color: green;
+}
+
+#bottom-bar.error {
+    background-color: red;
+}
+
+.hidden {
+    display: none;
+    /* Class to hide the bar */
+}
+
+.visible {
+    display: block;
+    /* Class to show the bar */
+}
